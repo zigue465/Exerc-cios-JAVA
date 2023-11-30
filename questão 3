@@ -1,0 +1,20 @@
+public class SomaMultiplicacao {
+
+    public static void main(String[] args) {
+        int somaImpares = 0;
+        long multiplicacaoPares = 1;
+
+        for (int i = 0; i <= 30; i++) {
+            if (i % 2 == 1) {
+                // Se i é ímpar, adiciona à soma
+                somaImpares += i;
+            } else {
+                // Se i é par, multiplica
+                multiplicacaoPares *= i;
+            }
+        }
+
+        System.out.println("Soma dos ímpares entre 0 e 30: " + somaImpares);
+        System.out.println("Multiplicação dos pares entre 0 e 30: " + multiplicacaoPares);
+    }
+}
