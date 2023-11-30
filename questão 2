@@ -1,0 +1,14 @@
+public class NumeroDecrescente {
+
+    // Método para imprimir números em ordem decrescente até 0
+    public static void imprimirDecrescente(int numero) {
+        for (int i = numero; i >= 0; i--) {
+            System.out.println(i);
+        }
+    }
+
+    public static void main(String[] args) {
+        // Exemplo de uso
+        imprimirDecrescente(5);
+    }
+}
