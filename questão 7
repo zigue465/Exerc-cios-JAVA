@@ -1,0 +1,77 @@
+public class Contato {
+    private String nome;
+    private String email;
+
+    public Contato(String nome, String email) {
+        this.nome = nome;
+        this.email = email;
+    }
+
+    // Getters e setters
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+}
+
+public class Agenda {
+    private Contato[] contatos;
+
+    public Agenda(int tamanho) {
+        contatos = new Contato[tamanho];
+    }
+
+    // Método para adicionar um novo contato em uma posição vazia do vetor
+    public void adicionarContato(String nome, String email) {
+        for (int i = 0; i < contatos.length; i++) {
+            if (contatos[i] == null) {
+                contatos[i] = new Contato(nome, email);
+                System.out.println("Contato adicionado com sucesso.");
+                return; // Sai do método após adicionar o contato
+            }
+        }
+        System.out.println("Erro: Não há espaço disponível para adicionar o contato.");
+    }
+
+    // Método para buscar um contato através do nome
+    public Contato buscarContato(String nome) {
+        for (Contato contato : contatos) {
+            if (contato != null && contato.getNome().equals(nome)) {
+                return contato; // Retorna o contato encontrado
+            }
+        }
+        System.out.println("Contato não encontrado.");
+        return null; // Retorna null se o contato não for encontrado
+    }
+
+    // Método para excluir um contato através do nome
+    public void excluirContato(String nome) {
+        for (int i = 0; i < contatos.length; i++) {
+            if (contatos[i] != null && contatos[i].getNome().equals(nome)) {
+                contatos[i] = null;
+                System.out.println("Contato excluído com sucesso.");
+                return; // Sai do método após excluir o contato
+            }
+        }
+        System.out.println("Contato não encontrado para exclusão.");
+    }
+
+    public static void main(String[] args) {
+        // Exemplo de uso
+        Agenda agenda = new Agenda(5);
+
+        agenda.adicionarContato("João", "joao@example.com");
+        agenda.adicionarContato("Maria", "maria@example.com");
+
+        Contato contatoEncontrado = agenda.buscarContato("João");
+        if (contatoEncontrado != null) {
+            System.out.println("Contato encontrado: " + contatoEncontrado.getNome() + ", " + contatoEncontrado.getEmail());
+        }
+
+        agenda.excluirContato("Maria");
+    }
+}
