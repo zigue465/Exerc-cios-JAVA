@@ -1,0 +1,57 @@
+public class MediaAluno {
+    // Atributo do tipo vetor de inteiros para armazenar as notas
+    private int[] notas;
+
+    // Construtor para inicializar o vetor de notas
+    public MediaAluno(int tamanho) {
+        notas = new int[tamanho];
+    }
+
+    // Método para adicionar notas ao vetor
+    public void adicionarNota(int indice, int nota) {
+        // Verifica se a nota está no intervalo válido (entre 0 e 100)
+        if (nota >= 0 && nota <= 100) {
+            // Verifica se o índice está dentro dos limites do vetor
+            if (indice >= 0 && indice < notas.length) {
+                notas[indice] = nota;
+                System.out.println("Nota adicionada com sucesso.");
+            } else {
+                System.out.println("Erro: Índice inválido.");
+            }
+        } else {
+            System.out.println("Erro: A nota deve estar entre 0 e 100.");
+        }
+    }
+
+    // Método para calcular e imprimir a média das notas
+    public void calcularMedia() {
+        int soma = 0;
+        int quantidade = 0;
+
+        for (int nota : notas) {
+            soma += nota;
+            quantidade++;
+        }
+
+        // Verifica se há notas antes de calcular a média
+        if (quantidade > 0) {
+            double media = (double) soma / quantidade;
+            System.out.println("Média das notas: " + media);
+        } else {
+            System.out.println("Erro: Não há notas para calcular a média.");
+        }
+    }
+
+    public static void main(String[] args) {
+        // Exemplo de uso
+        MediaAluno mediaAluno = new MediaAluno(5);
+
+        mediaAluno.adicionarNota(0, 75);
+        mediaAluno.adicionarNota(1, 90);
+        mediaAluno.adicionarNota(2, 85);
+        mediaAluno.adicionarNota(3, 60);
+        mediaAluno.adicionarNota(4, 95);
+
+        mediaAluno.calcularMedia();
+    }
+}
