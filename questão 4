@@ -1,0 +1,19 @@
+public class TrocaNumero {
+
+    // Método para trocar e imprimir os números em ordem inversa
+    public static void trocarNumeros(int numA, int numB) {
+        System.out.println("Antes da troca: NumA = " + numA + ", NumB = " + numB);
+
+        // Troca os valores de numA e numB
+        int temp = numA;
+        numA = numB;
+        numB = temp;
+
+        System.out.println("Após a troca: NumA = " + numA + ", NumB = " + numB);
+    }
+
+    public static void main(String[] args) {
+        // Exemplo de uso
+        trocarNumeros(5, 9);
+    }
+}
